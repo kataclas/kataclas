@@ -1,20 +1,16 @@
-import Link from 'next/link'
 import Layout from '../components/MainLayout.js'
+import OfferList from '../components/OfferList';
+import withData from '../lib/withData';
 
-const OfferLink = (props) => (
-    <li>
-      <Link as={`/o/${props.id}`} href={`/offer?title=${props.title}`}>
-        <a>{props.title}</a>
-      </Link>
-    </li>
-  )
+const OFFERS_PER_PAGE = 10
 
 const Index = () => (
-    <Layout>
-      <h1>Kataclas</h1>
-      <OfferLink title="Iphone 7"/>
-      <OfferLink title="Bike Speed Specialized"/>
-    </Layout>
-  )
-  
-  export default Index
+  <Layout>
+    <h1>Batman TV Shows</h1>
+    <OfferList />
+  </Layout>
+)
+
+export default withData(() => (
+  <Index />
+))
